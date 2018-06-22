@@ -9,10 +9,9 @@ font-awesome for the bar icons, dmenu, feh for setting up the
 wallpaper and compton to enable some fading effects, reduce 
 screen tearing and enable terminal-emulators transparency effect.  
 if you wanna use the original i3 and not the fork (i3-gaps that 
-allow gaps), just comment out the two lines under section 
-**"#Gaps"** and the line under section **"#Borders"** in the config file.  
+allow gaps), remove all gaps settings from the i3 config file.  
 
-**a screenshot of the i3-gaps**   
+**screenshots of the i3-gaps**   
 
 [![i3_screenshot.png](https://raw.githubusercontent.com/seiflek/config-files/master/i3-gaps/i3_screenshot.png)](https://github.com/seiflek/config-files/tree/master/i3-gaps)
 
