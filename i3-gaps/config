@@ -190,6 +190,46 @@ mode "resize" {
 #
 bindsym $mod+r mode "resize"
 
+# A smart way to resize gaps on the fly thanks to Airblader
+# source https://github.com/Airblader/i3
+#
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+	bindsym o      mode "$mode_gaps_outer"
+	bindsym i      mode "$mode_gaps_inner"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+	bindsym plus  gaps inner current plus 5
+	bindsym minus gaps inner current minus 5
+	bindsym 0     gaps inner current set 0
+
+	bindsym Shift+plus  gaps inner all plus 5
+	bindsym Shift+minus gaps inner all minus 5
+	bindsym Shift+0     gaps inner all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+	bindsym plus  gaps outer current plus 5
+	bindsym minus gaps outer current minus 5
+	bindsym 0     gaps outer current set 0
+
+	bindsym Shift+plus  gaps outer all plus 5
+	bindsym Shift+minus gaps outer all minus 5
+	bindsym Shift+0     gaps outer all set 0
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
 # i3lock, you need scrot and imagemagick installed
 # in order for the script to work.
 #
@@ -202,7 +242,12 @@ bindsym $mod+shift+x exec --no-startup-id i3lock --color "$bg-color"
 # Gaps
 #
 gaps inner 15
-smart_borders no_gaps
+gaps outer 5
+
+# smart gaps and borders
+#
+smart_gaps on #disable gaps when there's only one container
+smart_borders on #disable borders when there's only one container
 
 # Borders
 #
@@ -244,7 +289,7 @@ set $urgent-bg-color		#E53935
 # windows colors also, change them too
 # those expamples will look somewhat similar to arc-dark theme
 #
-# class                 border                  backgr.                 text                    indicator
+# class                 #border                 #backgr.                #text                   #indicator
 client.focused          $bg-color               #9e9e9e                 $text-color             #00ff00
 client.unfocused        $inactive-bg-color      $inactive-bg-color      $inactive-text-color    #00ff00
 client.focused_inactive $inactive-bg-color      $inactive-bg-color      $inactive-text-color    #00ff00
@@ -256,17 +301,17 @@ client.urgent           $urgent-bg-color        $urgent-bg-color        $text-co
 #bar {
 #	status_command i3blocks -c ~/.i3/i3blocks.conf
 #	position top
-#	# change fonts to your likings
+#	# change the fonts to what suits you
 #	font pango:xos4 Ubuntu, FontAwesome 9
 #	height 22
 #	separator_symbol ""
 #	colors {
-
+#
 #		background $bg-color
 #		statusline #ffffff
 #		separator  #fdec87
-
-#				#border                     backgr.                 text
+#
+#				   #border                     #backgr.                #text
 #		focused_workspace  $bg-color                   $bg-color               $text-color
 #		active_workspace   #323232                     #5f676a                 #ebdbb2
 #		inactive_workspace $inactive-bg-color          $inactive-bg-color      $inactive-text-color
