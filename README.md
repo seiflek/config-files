@@ -15,3 +15,5 @@ allow gaps), just comment out the two lines under section
 **a screenshot of the i3-gaps**   
 
 [![i3_screenshot.png](https://raw.githubusercontent.com/seiflek/config-files/master/i3-gaps/i3_screenshot.png)](https://github.com/seiflek/config-files/tree/master/i3-gaps)
+
+[![i3lock_screenshot.png](https://raw.githubusercontent.com/seiflek/config-files/master/i3-gaps/i3lock_screenshot.png)](https://github.com/seiflek/config-files/tree/master/i3-gaps)
