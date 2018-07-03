@@ -8,8 +8,6 @@ You'll need to have i3-gaps installed along with i3blocks,
 font-awesome for the bar icons, dmenu, feh for setting up the 
 wallpaper and compton to enable some fading effects, reduce 
 screen tearing and enable terminal-emulators transparency effect.  
-if you wanna use the original i3 and not the fork (i3-gaps that 
-allow gaps), remove all gaps settings from the i3 config file.  
 
 **screenshots of the i3-gaps**   
 
