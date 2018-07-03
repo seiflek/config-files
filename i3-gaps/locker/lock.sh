@@ -8,4 +8,4 @@ scrot $BG
 # render the text more readable.
 convert $BG -blur 0x5 $BG
 convert $BG $IMG -gravity center -composite -matte $BG
-i3lock -i $BG
+i3lock -u -i $BG
