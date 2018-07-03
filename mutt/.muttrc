@@ -96,8 +96,8 @@ set pgp_auto_decode = yes # also verify old-style inline signatures
 #set pgp_timeout = 3600 # gpg-agent ttl
 #set crypt_replyencrypt = yes # auto-encrypt to replays to encrypted messages
 #set pgp_sign_as = 12CD66E7C8A1464A # the key to sign emails with
-#pgp_replysign = yes # auto sign replay to only signed messages
-#pgp_replysignencrypt = yes # auto encrypt and sign replies to encrypted messages
+#set pgp_replysign = yes # auto sign replay to only signed messages
+#set pgp_replysignencrypt = yes # auto encrypt and sign replies to encrypted messages
 
 # Folder hooks to switch between accounts
 #
