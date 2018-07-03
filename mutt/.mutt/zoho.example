@@ -1,0 +1,43 @@
+# Simple Configuration for Zoho
+#
+unmailboxes *
+set imap_user = "<example>@zoho.com"
+set imap_pass = "<passwd>"
+set smtp_url = "smtp://<example>@smtp.zoho.com:587/"
+set smtp_pass = "<passwd>"
+set from = "<example>@zoho.com"
+set signature = "your signature"
+#set signature = "~/.mutt/signature" # or a signature file
+set realname = "Example Name"
+set folder = "imaps://imap.zoho.com:993"
+set spoolfile = "+INBOX"
+set postponed = "+[Zoho]/Drafts"
+set header_cache = ~/.mutt/com.zoho.example/cache/headers
+set message_cachedir = ~/.mutt/com.zoho.example/cache/bodies
+set certificate_file = ~/.mutt/com.zoho.example/certificates
+set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+
+# Gnupg, per account example
+#
+source ~/.mutt/gpg.rc
+set pgp_verify_sig = yes # verify signatures
+set pgp_auto_decode = yes # also verify old-style inline signatures
+#set crypt_autosign = yes # auto sign outgoing emails
+set pgp_use_gpg_agent = yes # use gpg-agent
+set pgp_timeout = 3600 # gpg-agent ttl
+#set crypt_replyencrypt = yes # auto-encrypt to replays to encrypted messages
+set pgp_sign_as = 12CD66E7C8A1464A # the key to sign emails with
+pgp_replysign = yes # auto sign replay to only signed messages
+pgp_replysignencrypt = yes # auto encrypt and sign replies to encrypted messages
+
+# SSL hardening
+#
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set ssl_use_sslv2=no
+set ssl_use_sslv3=no
+set ssl_use_tlsv1=no
+set ssl_use_tlsv1_1=no
+set ssl_use_tlsv1_2=yes
+set ssl_verify_dates=yes
+set ssl_verify_host=yes

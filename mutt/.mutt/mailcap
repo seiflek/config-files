@@ -1,0 +1,7 @@
+# To pass html body to external programs.
+# elinks:
+text/html; elinks -dump ; copiousoutput;
+# or lynx:
+#text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput;
+# or w3m:
+#text/html; w3m -I %{charset} -T text/html; copiousoutput;

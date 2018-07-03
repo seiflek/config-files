@@ -1,0 +1,114 @@
+# Setting the default account to open when starting mutt
+#
+source ~/.mutt/gmail.example1
+
+# Character set on messages that we send
+#
+set send_charset="utf-8"
+
+# If there is no character set given on incoming messages, it is probably windows
+#
+set assumed_charset="iso-8859-1"
+
+# To make sure Vim knows Mutt is a mail client and that we compose an UTF-8 encoded message
+#
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8'"
+
+# Just scroll one line instead of full page
+#
+set menu_scroll=yes
+
+# Make default search pattern to search in To, Cc and Subject
+#
+set simple_search="~f %s | ~C %s | ~s %s"
+
+# Threading preferences, sort by threads in reverse order
+#
+set sort=reverse-threads
+set strict_threads=yes
+
+# Show spam score (from SpamAssassin only) when reading a message
+#
+#spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
+
+# Set the pager format
+set pager_format = " %C - %[%H:%M] %.20v, %s%* %?H? [%H] ?"
+
+# Do not show all headers, just a few
+#
+ignore          *
+unignore        From To Cc Bcc Date Subject
+# and in this order
+#
+unhdr_order     *
+hdr_order       From: To: Cc: Bcc: Date: Subject:
+
+# Brighten up stuff with colours, for more colouring examples see:
+# http://aperiodic.net/phil/configs/mutt/colors
+#
+color normal      white          black
+color hdrdefault  green          default
+color quoted      green          default
+color quoted1     yellow         default
+color quoted2     red            default
+color signature   cyan           default
+color indicator   brightyellow   red
+color error       brightred      default
+color status      brightwhite    blue
+color tree        brightmagenta  black
+color tilde       blue           default
+color attachment  brightyellow   default
+color markers     brightred      default
+color message     white          black
+color search      brightwhite    magenta
+color bold        brightyellow   default
+# If you don't like the black progress bar at the bottom of the screen,
+# comment out the following line
+color progress    white          black
+
+# Map the ^ to fetch new mails
+#
+bind index "^" imap-fetch-mail
+
+# Set the mailcap file path
+#
+set mailcap_path = ~/.mutt/mailcap
+
+# To auto view html in external app like elinks
+#
+auto_view text/html
+
+# Avoid treating every email as html and default to text when available
+#
+alternative_order text/plain text/html
+
+# GnuPG, i highly recommend that you enable it per account if you have multiple accounts
+# more info: https://gitlab.com/muttmua/mutt/wikis/MuttGuide/UseGPG
+# pgp_* or crypt_* are treated similarly
+#
+source ~/.mutt/gpg.rc
+# This enables few settings just to check signatures
+set pgp_verify_sig = yes # verify signatures
+set pgp_auto_decode = yes # also verify old-style inline signatures
+
+#set crypt_autosign = yes # auto sign outgoing emails
+#set pgp_use_gpg_agent = yes # use gpg-agent
+#set pgp_timeout = 3600 # gpg-agent ttl
+#set crypt_replyencrypt = yes # auto-encrypt to replays to encrypted messages
+#set pgp_sign_as = 12CD66E7C8A1464A # the key to sign emails with
+#pgp_replysign = yes # auto sign replay to only signed messages
+#pgp_replysignencrypt = yes # auto encrypt and sign replies to encrypted messages
+
+# Folder hooks to switch between accounts
+#
+folder-hook 'gmail.example1' 'source ~/.mutt/gmail.example1'
+folder-hook 'gmail.example2' 'source ~/.mutt/gmail.example2'
+folder-hook 'zoho.example' 'source ~/.mutt/zoho.example'
+#folder-hook 'gmail.example3' 'source ~/.mutt/gmail.example3'
+
+# Macros to actually switch between accounts
+#
+macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example1<enter><change-folder>!<enter>'
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example2<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/zoho.example<enter><change-folder>!<enter>'
+#macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example3<enter><change-folder>!<enter>'
