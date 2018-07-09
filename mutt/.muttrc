@@ -109,6 +109,7 @@ folder-hook 'gmail.example1' 'source ~/.mutt/gmail.example1'
 folder-hook 'gmail.example2' 'source ~/.mutt/gmail.example2'
 folder-hook 'zoho.example' 'source ~/.mutt/zoho.example'
 folder-hook 'outlook.example' 'source ~/.mutt/outlook.example'
+folder-hook 'yahoo.example' 'source ~/.mutt/yahoo.example'
 #folder-hook 'gmail.example3' 'source ~/.mutt/gmail.example3'
 
 # Macros to actually switch between accounts
@@ -117,4 +118,5 @@ macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example1<ent
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example2<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/zoho.example<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/outlook.example<enter><change-folder>!<enter>'
-#macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example3<enter><change-folder>!<enter>'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/yahoo.example<enter><change-folder>!<enter>'
+#macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example3<enter><change-folder>!<enter>'
