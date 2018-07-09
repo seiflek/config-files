@@ -82,6 +82,10 @@ auto_view text/html
 #
 alternative_order text/plain text/html
 
+# Map c key to change folders on the fly
+#
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+
 # GnuPG, i highly recommend that you enable it per account if you have multiple accounts
 # more info: https://gitlab.com/muttmua/mutt/wikis/MuttGuide/UseGPG
 # pgp_* or crypt_* are treated similarly
@@ -104,6 +108,7 @@ set pgp_auto_decode = yes # also verify old-style inline signatures
 folder-hook 'gmail.example1' 'source ~/.mutt/gmail.example1'
 folder-hook 'gmail.example2' 'source ~/.mutt/gmail.example2'
 folder-hook 'zoho.example' 'source ~/.mutt/zoho.example'
+folder-hook 'outlook.example' 'source ~/.mutt/outlook.example'
 #folder-hook 'gmail.example3' 'source ~/.mutt/gmail.example3'
 
 # Macros to actually switch between accounts
@@ -111,4 +116,5 @@ folder-hook 'zoho.example' 'source ~/.mutt/zoho.example'
 macro index <f1> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example1<enter><change-folder>!<enter>'
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example2<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/zoho.example<enter><change-folder>!<enter>'
-#macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example3<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/outlook.example<enter><change-folder>!<enter>'
+#macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/gmail.example3<enter><change-folder>!<enter>'
