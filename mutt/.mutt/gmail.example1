@@ -19,16 +19,16 @@ set status_format = "$from -%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?
 
 # Gnupg, per account example
 #
-source ~/.mutt/gpg.rc
-set pgp_verify_sig = yes # verify signatures
-set pgp_auto_decode = yes # also verify old-style inline signatures
+#source ~/.mutt/gpg.rc
+#set pgp_verify_sig = yes # verify signatures
+#set pgp_auto_decode = yes # also verify old-style inline signatures
 #set crypt_autosign = yes # auto sign outgoing emails
-set pgp_use_gpg_agent = yes # use gpg-agent
-set pgp_timeout = 3600 # gpg-agent ttl
-#set crypt_replyencrypt = yes # auto-encrypt to replays to encrypted messages
+#set pgp_use_gpg_agent = yes # use gpg-agent
+#set pgp_timeout = 3600 # gpg-agent ttl
+#set crypt_replyencrypt = yes # auto-encrypt replays to encrypted messages
 set pgp_sign_as = 12CD66E7C8A1464A # the key to sign emails with
-set pgp_replysign = yes # auto sign replay to only signed messages
-set pgp_replysignencrypt = yes # auto encrypt and sign replies to encrypted messages
+#set pgp_replysign = yes # auto sign replay to only signed messages
+#set pgp_replysignencrypted = yes # auto encrypt and sign replies to encrypted messages
 
 # SSL hardening
 #
